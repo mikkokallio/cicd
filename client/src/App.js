@@ -84,6 +84,7 @@ const App = () => {
     personService
       .remove(target.id)
       .then(response => {
+        console.log(response)
         setPersons(persons.filter(person => person.id !== target.id))
         setErrorMessage(`${target.name} deleted`)
         setNotificationType('success')
@@ -109,6 +110,7 @@ const App = () => {
       personService
         .update(id, numberObject)
         .then(entry => {
+          console.log(entry)
           setPersons(persons.map(person => person.id !== id ? person : numberObject))
           setNewName('')
           setNewNumber('')
@@ -120,6 +122,7 @@ const App = () => {
         }
         )
         .catch(error => {
+          console.log(error)
           setErrorMessage(`Note '${newName}' was already removed from server`)
           setNotificationType('error')
 

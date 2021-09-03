@@ -35,8 +35,7 @@ const Numbers = (props) => (
   <div>
     <h2>Numbers</h2>
     {props.callback().map(person =>
-      <div key={person.name}>{
-        person.name} {person.number}
+      <div key={person.name}>{person.name} {person.number}
         <Button text='delete' onClick={() => props.deleted(person)} />
       </div>
     )}

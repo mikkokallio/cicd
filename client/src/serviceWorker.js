@@ -18,7 +18,7 @@ const isLocalhost = Boolean(
     window.location.hostname.match(
       /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
     )
-);
+)
 
 export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
@@ -28,7 +28,7 @@ export function register(config) {
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
       // serve assets; see https://github.com/facebook/create-react-app/issues/2374
-      return;
+      return
     }
 
     window.addEventListener('load', () => {
@@ -60,8 +60,8 @@ function registerValidSW(swUrl, config) {
     .then(registration => {
       registration.onupdatefound = () => {
         const installingWorker = registration.installing
-        if (installingWorker == null) {
-          return;
+        if (installingWorker === null) {
+          return
         }
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
@@ -72,7 +72,7 @@ function registerValidSW(swUrl, config) {
               console.log(
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
-              );
+              )
 
               // Execute callback
               if (config && config.onUpdate) {
@@ -108,7 +108,7 @@ function checkValidServiceWorker(swUrl, config) {
       const contentType = response.headers.get('content-type')
       if (
         response.status === 404 ||
-        (contentType != null && contentType.indexOf('javascript') === -1)
+        (contentType !== null && contentType.indexOf('javascript') === -1)
       ) {
         // No service worker found. Probably a different app. Reload the page.
         navigator.serviceWorker.ready.then(registration => {

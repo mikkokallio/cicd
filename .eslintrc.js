@@ -17,6 +17,7 @@ module.exports = {
     'sourceType': 'module'
   },
   'rules': {
+    'react/prop-types': 'off',
     'eqeqeq': 'error',
     'no-trailing-spaces': 'error',
     'object-curly-spacing': [

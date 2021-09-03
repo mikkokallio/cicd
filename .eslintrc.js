@@ -6,9 +6,8 @@ module.exports = {
     'es2020': true
   },
   'extends': [
-    'eslint:recommended',
-    'plugin:react/recommended'
-  ],  'parserOptions': {
+    'eslint:recommended'
+  ], 'parserOptions': {
     'ecmaFeatures': {
       'jsx': true
     },

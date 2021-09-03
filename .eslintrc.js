@@ -6,12 +6,12 @@ module.exports = {
     'es2020': true
   },
   'extends': 'eslint:recommended',
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+  'parserOptions': {
+    'ecmaFeatures': {
+      'jsx': true
     },
-    "ecmaVersion": 2018,
-    "sourceType": "module"
+    'ecmaVersion': 2018,
+    'sourceType': 'module'
   },
   'rules': {
     'eqeqeq': 'error',

@@ -18,6 +18,6 @@ jobs:
       - name: lint
         run: npm run lint
       - name: build
-        run: npm run build
+        run: cd client && npm run build
       - name: test
         run: npm run test

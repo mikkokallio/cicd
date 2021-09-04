@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { } from 'dotenv/config'
 
 let baseUrl
 process.env.NODE_ENV === 'prod' ? baseUrl = 'https://reallyboringapp.herokuapp.com/api/persons' : baseUrl = 'http://localhost:3001/api/persons'

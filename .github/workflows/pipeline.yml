@@ -14,6 +14,18 @@ jobs:
         with:
           node-version: '12.x'
       - name: npm install
-        run: npm install
+        run: npm install && cd client && npm install
+      - name: .env
+        #env:
+          #MONGODB_URI: ${{ secrets.MONGODB_URI }}
+        run: |
+          cd client && touch .env
+          echo SKIP_PREFLIGHT_CHECK=true >> .env
+          ls -a
+        shell: bash
       - name: lint
         run: npm run lint
+      - name: build
+        run: cd client && npm run build
+      - name: test
+        run: npm run test

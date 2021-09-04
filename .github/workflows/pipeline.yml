@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: '12.x'
       - name: npm install
-        run: npm install && cd client && npm install
+        run: npm install && cd client && npm install && npm install -g serve
       - name: .env
         #env:
           #MONGODB_URI: ${{ secrets.MONGODB_URI }}

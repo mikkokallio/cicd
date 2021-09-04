@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"No unit tests (pass)",
+    "test": "echo \"Placeholder for unit tests (pass)\"",
     "lint": "eslint ."
   },
   "author": "Mikko Kallio",

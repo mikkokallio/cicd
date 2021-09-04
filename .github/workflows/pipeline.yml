@@ -40,3 +40,12 @@ jobs:
           command: npm run test:e2e
           start: node index.js, serve -s build
           wait-on: http://localhost:3001, http://localhost:5000
+      - if: ${{ github.event_name == 'push' && !contains(join(toJson(github.event.commits.*.message)), '#SKIP') }}
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "reallyboringapp"
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          #healthcheck: "https://reallyboringapp.herokuapp.com/health"
+          #checkstring: "ok"
+          #rollbackonhealthcheckfailed: true

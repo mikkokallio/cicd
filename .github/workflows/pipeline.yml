@@ -23,6 +23,7 @@ jobs:
           touch .env
           echo MONGODB_URI=$MONGODB_URI >> .env
           echo TEST_MONGODB_URI=$TEST_MONGODB_URI >> .env
+          echo PORT=3001 >> .env
           cd client && touch .env
           echo SKIP_PREFLIGHT_CHECK=true >> .env
           ls -a
@@ -37,5 +38,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           command: npm run test:e2e
-          start: serve -s build
-          wait-on: http://localhost:5000
+          start: node index.js
+          wait-on: http://localhost:3001
+          #start: serve -s build
+          #wait-on: http://localhost:5000

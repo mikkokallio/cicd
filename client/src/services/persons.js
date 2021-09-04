@@ -1,7 +1,7 @@
 import axios from 'axios'
 require('dotenv').config()
 
-let baseUrl
+//let baseUrl
 //process.env.REACT_APP_NODE_ENV === 'production' ? baseUrl = 'https://reallyboringapp.herokuapp.com/api/persons' : baseUrl = 'http://localhost:3001/api/persons'
 //const baseUrl = 'http://localhost:3001/api/persons'
 const baseUrl = 'https://reallyboringapp.herokuapp.com/api/persons'

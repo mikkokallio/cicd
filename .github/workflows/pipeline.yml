@@ -16,9 +16,13 @@ jobs:
       - name: npm install
         run: npm install && cd client && npm install && npm install -g serve
       - name: .env
-        #env:
-          #MONGODB_URI: ${{ secrets.MONGODB_URI }}
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
         run: |
+          touch .env
+          echo MONGODB_URI=$MONGODB_URI >> .env
+          echo TEST_MONGODB_URI=$TEST_MONGODB_URI >> .env
           cd client && touch .env
           echo SKIP_PREFLIGHT_CHECK=true >> .env
           ls -a

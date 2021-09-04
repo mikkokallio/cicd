@@ -15,6 +15,14 @@ jobs:
           node-version: '12.x'
       - name: npm install
         run: npm install && cd client && npm install
+      - name: .env
+        env:
+          #MONGO: ${{ secrets.AWS_HOST }}
+        run: |
+          cd client && touch .env
+          echo SKIP_PREFLIGHT_CHECK=true >> .env
+          ls -a
+        shell: bash
       - name: lint
         run: npm run lint
       - name: build

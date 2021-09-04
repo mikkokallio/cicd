@@ -16,7 +16,7 @@ jobs:
       - name: npm install
         run: npm install && cd client && npm install
       - name: .env
-        env:
+        #env:
           #MONGO: ${{ secrets.AWS_HOST }}
         run: |
           cd client && touch .env

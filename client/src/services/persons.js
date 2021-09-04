@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 let baseUrl
-process.env.NODE_ENV === 'prod' ? baseUrl = `https://reallyboringapp.herokuapp.com/api/persons` : baseUrl = 'http://localhost:3001/api/persons'
+process.env.NODE_ENV === 'prod' ? baseUrl = 'https://reallyboringapp.herokuapp.com/api/persons' : baseUrl = 'http://localhost:3001/api/persons'
 //const baseUrl = 'http://localhost:3001/api/persons'
 
 const getAll = () => {

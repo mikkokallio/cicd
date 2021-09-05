@@ -31,8 +31,8 @@ jobs:
         shell: bash
       - name: lint
         run: npm run lint
-      - name: build
-        run: cd client && npm run build
+      - name: build for cypress
+        run: cd client && npm run build RUN_MODE=cypress
       - name: test
         run: npm run test
       - name: e2e tests
@@ -41,6 +41,8 @@ jobs:
           command: npm run test:e2e
           start: node index.js, serve -s build
           wait-on: http://localhost:3001, http://localhost:5000
+      - name: heroku build
+        run: rm -rf build && cd client && npm run build RUN_MODE=heroku
       - if: ${{ github.event_name == 'push' && !contains(join(toJson(github.event.commits.*.message)), '#SKIP') }}
         uses: akhileshns/heroku-deploy@v3.12.12
         with:

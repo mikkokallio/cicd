@@ -2,9 +2,7 @@ import axios from 'axios'
 require('dotenv').config()
 
 let baseUrl
-process.env.RUN_MODE !== 'heroku' ? baseUrl = 'https://reallyboringapp.herokuapp.com/api/persons' : baseUrl = 'http://localhost:3001/api/persons'
-//const baseUrl = 'http://localhost:3001/api/persons'
-//const baseUrl = 'https://reallyboringapp.herokuapp.com/api/persons'
+process.env.REACT_APP_RUN_MODE === 'heroku' ? baseUrl = 'https://reallyboringapp.herokuapp.com/api/persons' : baseUrl = 'http://localhost:3001/api/persons'
 
 const getAll = () => {
   const request = axios.get(baseUrl)

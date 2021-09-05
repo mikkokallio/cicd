@@ -27,7 +27,6 @@ jobs:
           file -bi .env
           cd client && touch .env
           echo SKIP_PREFLIGHT_CHECK=true >> .env
-          ls -a
         shell: bash
       - name: lint
         run: npm run lint
@@ -42,7 +41,7 @@ jobs:
           start: node index.js, serve -s build
           wait-on: http://localhost:3001, http://localhost:5000
       - name: build for heroku
-        run: rm -rf build && cd client && echo RUN_MODE='heroku' >> .env && npm run build
+        run: rm -rf build && cd client && echo RUN_MODE='heroku' >> .env && cat .env && pwd && ls -la && npm run build
       - if: ${{ github.event_name == 'push' && !contains(join(toJson(github.event.commits.*.message)), '#SKIP') }}
         uses: akhileshns/heroku-deploy@v3.12.12
         with:

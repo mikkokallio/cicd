@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - master
-
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize]
+    
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-18.04
@@ -41,6 +44,7 @@ jobs:
           start: node index.js, serve -s build
           wait-on: http://localhost:3001, http://localhost:5000
       - name: build for heroku
+        if: ${{ github.event_name == 'push' && !contains(join(toJson(github.event.commits.*.message)), '#SKIP') }}
         run: rm -rf build && cd client && echo REACT_APP_RUN_MODE=\'heroku\' >> .env && cat .env && pwd && ls -la && npm run build
       - if: ${{ github.event_name == 'push' && !contains(join(toJson(github.event.commits.*.message)), '#SKIP') }}
         uses: akhileshns/heroku-deploy@v3.12.12

@@ -1,3 +1,4 @@
-# backend
+# CI/CD pipeline exercise
 
-View the UI at: https://shielded-citadel-76663.herokuapp.com/
+View deployed app at https://reallyboringapp.herokuapp.com/
+Other repo related to this course is at https://github.com/mikkokallio/full-stack-open-pokedex

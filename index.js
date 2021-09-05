@@ -13,6 +13,10 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :b
 app.use(cors())
 app.use(express.static('build'))
 
+app.get('/health', (req, res) => {
+  res.send('ok')
+})
+
 app.get('/info', (req, res) => {
   Person.find({}).then(persons => {
     const info = persons.length

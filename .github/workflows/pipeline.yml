@@ -34,12 +34,12 @@ jobs:
         run: cd client && npm run build
       - name: test
         run: npm run test
-#      - name: e2e tests
-#        uses: cypress-io/github-action@v2
-#        with:
-#          command: npm run test:e2e
-#          start: node index.js, serve -s build
-#          wait-on: http://localhost:3001, http://localhost:5000
+      - name: e2e tests
+        uses: cypress-io/github-action@v2
+        with:
+          command: npm run test:e2e
+          start: node index.js, serve -s build
+          wait-on: http://localhost:3001, http://localhost:5000
       - name: build for heroku
         run: rm -rf build && cd client && echo REACT_APP_RUN_MODE=\'heroku\' >> .env && cat .env && pwd && ls -la && npm run build
       - if: ${{ github.event_name == 'push' && !contains(join(toJson(github.event.commits.*.message)), '#SKIP') }}
